@@ -7,7 +7,7 @@ namespace Aula03Csharp
         public int Cavalos;
         public bool FiltroCombustivelEntupido;
         public string Modelo;
-        public Carro()
+        public Carro(string Modelo, string  Marca, int Cavalos, string PaisDeOrigem, bool Flex, double QntTanqueAtual, double QntTanqueCombustivel)
         {
         }
 

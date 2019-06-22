@@ -6,7 +6,26 @@ namespace Aula03Csharp
     {
         static void Main(string[] args)
         {
-            Carro carro = new Carro { Modelo = "Cruze", Marca = "Chevrolet", Cavalos = 180, PaisDeOrigem = "EUA", Flex = true, QntTanqueAtual = 10, QntTanqueCombustivel = 60 };
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("digite o modelo do carro: ");
+                string Modelo = Console.ReadLine();
+                Console.WriteLine("digite a marca do carro: ");
+                string Marca = Console.ReadLine();
+                Console.WriteLine("digite a quantidade de cavalos: ");
+                int Cavalos = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("digite o pais de origem: ");
+                string PaisDeOrigem = Console.ReadLine();
+                Console.WriteLine("digite se o carro é flex: ");
+                bool Flex = Convert.ToBoolean(Console.ReadLine());
+                Console.WriteLine("digite a quantidade atual: ");
+                double QntTanqueAtual = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("digite a capacidade de combustivel do carro: ");
+                double QntTanqueCombustivel = Convert.ToDouble(Console.ReadLine());
+                Carro carro = new Carro(Modelo, Marca, Cavalos, PaisDeOrigem, Flex, QntTanqueAtual, QntTanqueCombustivel);
+            }
+            Carro carro = new Carro();
+            //Carro carro = new Carro ( Modelo, Marca, Cavalos, PaisDeOrigem, Flex, QntTanqueAtual, QntTanqueCombustivel );
             carro.KmLitro(9.1M);
             carro.FiltroCombustivelEntupido = true;
             Console.WriteLine($"Carro:{carro.Modelo} - Marca: {carro.Marca} - Combustível atual {carro.QntTanqueAtual} - QntTanqueTotal = {carro.QntTanqueCombustivel}");
@@ -26,8 +45,6 @@ namespace Aula03Csharp
                         break;
                 }
             }
-
-
 
         }
     }
