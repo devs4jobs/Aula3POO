@@ -1,11 +1,42 @@
 ﻿using System;
-
+using System.Globalization;
 namespace Aula03Csharp
 {
     class Program
     {
         static void Main(string[] args)
-        {
+        { int i = 0;
+            bool flex;
+            do
+            {
+                try
+                {
+                    Console.WriteLine("Digite o Modelo do veiculo:");
+                    string nome = Console.ReadLine();
+                    Console.WriteLine("Digite a Marca:");
+                    string Marca = Console.ReadLine();
+                    Console.WriteLine("Digite o Cavalos ou Cilindradas:");
+                    int potencia = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Digite o Pais de Origem:");
+                    string Pais = Console.ReadLine();
+                    Console.WriteLine("O Veiculo é Flex?(s/n)");
+                    char s = Convert.ToChar(Console.ReadLine());
+                    if (s == 's' || s == 'S')
+                        flex = true;
+                    else flex = false;
+                    Console.WriteLine("Quantos litros tem o Tanque cheio?");
+                    decimal QtdT = Convert.ToDecimal(Console.ReadLine());
+                    Console.WriteLine("Quantos Litros tem no Tanque Atual");
+                    decimal Quan = Convert.ToDecimal(Console.ReadLine());
+                    Console.WriteLine("O Veiculo é moto ou carro?");
+                    string veiculo = Console.ReadLine();
+
+                    if (veiculo == "carro" || veiculo == "Carro" || veiculo == "CARRO")
+                    {
+                        Carro Carrinho=new Carro()
+                    }
+                }
+            } while (i < 5);
             Carro carro = new Carro { Modelo = "Cruze", Marca = "Chevrolet", Cavalos = 180, PaisDeOrigem = "EUA", Flex = true, QntTanqueAtual = 10, QntTanqueCombustivel = 60 };
             carro.KmLitro(9.1M);
             carro.FiltroCombustivelEntupido = true;

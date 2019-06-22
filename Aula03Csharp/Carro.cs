@@ -5,7 +5,6 @@ namespace Aula03Csharp
     public class Carro : Veiculo
     {
         public int Cavalos;
-        public bool FiltroCombustivelEntupido;
         public string Modelo;
         public Carro()
         {
@@ -23,11 +22,21 @@ namespace Aula03Csharp
 
         public decimal Consumo(decimal xKms)
         {
-            if (FiltroCombustivelEntupido)
-                return QntTanqueAtual -= xKms / KmPorLitro + (KmPorLitro * 20 / 100);
-            else
-                return QntTanqueAtual -= xKms / KmPorLitro;
 
+            if (FiltroCombustivelEntupido && Clima)
+            {
+                QntTanqueAtual -= xKms / KmPorLitro + (KmPorLitro * 35 / 100);
+                if (QntTanqueAtual < 0)
+
+
+            }
+            else if (FiltroCombustivelEntupido) {
+                QntTanqueAtual -= xKms / KmPorLitro + (KmPorLitro * 20 / 100);
+            }
+            else if (Clima)
+            { QntTanqueAtual -= xKms / KmPorLitro+(KmPorLitro*15/100); }
+
+            else return QntTanqueAtual-=xKms/KmPorLitro
         }
 
     }

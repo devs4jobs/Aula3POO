@@ -10,16 +10,17 @@ namespace Aula03Csharp
         public decimal QntTanqueAtual;
         public bool Flex;
         public decimal KmPorLitro = 8;
+        public bool Clima;
+        public bool FiltroCombustivelEntupido;
 
-
-        public Veiculo(string marca, string paisOrigem, decimal qntTanque, bool flex)
+        public Veiculo(string marca, string paisOrigem, decimal qntTanque, bool flex,decimal qtdAtual)
         {
 
             Marca = marca;
             PaisDeOrigem = paisOrigem;
             QntTanqueCombustivel = qntTanque;
             Flex = flex;
-
+            QntTanqueAtual = qtdAtual;
         }
 
         public Veiculo()
