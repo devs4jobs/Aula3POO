@@ -6,12 +6,24 @@ namespace Aula03Csharp
     {
         public int Cavalos;
         public bool FiltroCombustivelEntupido;
-        public string Modelo;
-        public Carro()
+
+        public Carro(string modelo, string marca, string paisOrigem, double qntTanque, bool flex, double qtdTanqueCombustivel,int cavalinho)
         {
+            Modelo = modelo;
+            Marca = marca;
+            PaisDeOrigem = paisOrigem;
+            QntTanqueAtual = qntTanque;
+            Flex = flex;
+            QntTanqueCombustivel = qtdTanqueCombustivel;
+            Cavalos = cavalinho;
         }
 
-        public void Dirigir(decimal xKms)
+        public Carro(int cavalos)
+        {
+            Cavalos = cavalos;
+        }
+
+        public void Dirigir(double xKms)
         {
 
             if (AutonomiaAtual() >= xKms)
@@ -21,7 +33,7 @@ namespace Aula03Csharp
 
         }
 
-        public decimal Consumo(decimal xKms)
+        public double Consumo(double xKms)
         {
             if (FiltroCombustivelEntupido)
                 return QntTanqueAtual -= xKms / KmPorLitro + (KmPorLitro * 20 / 100);

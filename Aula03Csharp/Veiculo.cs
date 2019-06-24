@@ -2,17 +2,18 @@
 
 namespace Aula03Csharp
 {
-    public class Veiculo
+    public class Veiculo 
     {
+
+        public string Modelo;
         public string Marca;
         public string PaisDeOrigem;
-        public decimal QntTanqueCombustivel;
-        public decimal QntTanqueAtual;
+        public double QntTanqueCombustivel;
+        public double QntTanqueAtual;
         public bool Flex;
-        public decimal KmPorLitro = 8;
+        public double KmPorLitro = 8;
 
-
-        public Veiculo(string marca, string paisOrigem, decimal qntTanque, bool flex)
+        public Veiculo(string marca, string paisOrigem, double  qntTanque, bool flex)
         {
 
             Marca = marca;
@@ -21,17 +22,15 @@ namespace Aula03Csharp
             Flex = flex;
 
         }
-
         public Veiculo()
         {
 
         }
+        public void KmLitro(double kmPorLitro) { KmPorLitro = kmPorLitro; }
 
-        public void KmLitro(decimal kmPorLitro) { KmPorLitro = kmPorLitro; }
+        public double AutonomiaAtual() { return QntTanqueAtual * KmPorLitro; }
 
-        public decimal AutonomiaAtual() { return QntTanqueAtual * KmPorLitro; }
-
-        public void Abastecer(decimal litros)
+        public void Abastecer(double  litros)
         {
             if (QntTanqueAtual == QntTanqueCombustivel)
                 Console.WriteLine("Tanque cheio!");
