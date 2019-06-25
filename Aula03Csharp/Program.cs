@@ -8,9 +8,10 @@ namespace Aula03Csharp
         static void Main(string[] args)
         {   bool clima=false;
             decimal Viagem=0;
+            int i;
             List<Carro> Carros = new List<Carro>();
             List<Moto> Motos = new List<Moto>();
-            for(int i=0;i<3;i++)
+            for(i=0;i<3;i++)
             {
                 try
                 {
@@ -37,7 +38,7 @@ namespace Aula03Csharp
                 }
             } 
    
-            for(int i=0;i<2;i++)
+            for(i=0;i<2;i++)
             {
                 try
                 {
@@ -63,7 +64,8 @@ namespace Aula03Csharp
                     Console.WriteLine(e.Message);
                     i--;
                 }
-            } 
+            }
+            i = 0;
             do   
             {
                 try
@@ -77,7 +79,7 @@ namespace Aula03Csharp
                     string estado = Console.ReadLine();
                     if (estado.ToUpper() == "RUIM")
                         clima = true;
-                    int i = 0;
+                    
                     do
                     {
                         Console.WriteLine("Digite 1 para dirigir\nDigite 2 para abastecer\nDigite 3 para exibir a quantidade de combustível atual\nDigite 4 para ver todos os dados do veiculo");
