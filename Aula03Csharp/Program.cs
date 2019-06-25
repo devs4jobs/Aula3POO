@@ -160,7 +160,6 @@ namespace Aula03Csharp
                             }
                         }
                     } while (Viajando == true);
-
                 }
                 catch (Exception e) { Console.WriteLine(e.Message); }
             } while (Motos[0].viagem != Viagem || Motos[1].viagem != Viagem || Carros[0].viagem != Viagem || Carros[1].viagem != Viagem || Carros[2].viagem != Viagem);

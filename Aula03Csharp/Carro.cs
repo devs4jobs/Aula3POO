@@ -25,12 +25,12 @@ namespace Aula03Csharp
                 if (viagem > Viagem)
                 {
                     viagem = Viagem;
-                    Console.WriteLine("Você ja chegou ao seu destino");
+                    Console.WriteLine("Você chegou ao seu destino");
                 }
                 else if(Math.Round(Consumo(xKms),2)==0)
-                    Console.WriteLine($"O carro avançou {xKms} quilometro(s). Combustível atual : {Math.Round(Consumo(xKms), 2)} litros - Abasteça-o!");
+                    Console.WriteLine($"O carro avançou {xKms} quilometro(s). Combustível atual : {Math.Round(Consumo(xKms), 2)} litros - Abasteça-o!\nFalta{Viagem-viagem}");
                 else
-                    Console.WriteLine($"O carro avançou {xKms} quilometro(s). Combustível atual : {Math.Round(Consumo(xKms), 2)} litros.");
+                    Console.WriteLine($"O carro avançou {xKms} quilometro(s). Combustível atual : {Math.Round(Consumo(xKms), 2)} litros.\nFalta:{Viagem-viagem}");
             }
             else
                 Console.WriteLine($"O carro não possui combustível suficiente. Combustível atual: {Math.Round(QntTanqueAtual, 2)} - Abasteça-o!");
