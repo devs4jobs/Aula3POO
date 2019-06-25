@@ -6,7 +6,7 @@ namespace Aula03Csharp
     class Program
     {
         static void Main(string[] args)
-        {   bool clima=false;
+        {   bool clima=false,Viajando;
             decimal Viagem=0;
             int i;
             List<Carro> Carros = new List<Carro>();
@@ -66,39 +66,42 @@ namespace Aula03Csharp
                 }
             }
             i = 0;
-            do   
+
+            try
             {
-                try
+                //Tamanho da Viajem
+                Console.Write("Digite o tamanho da viagem:");
+                Viagem = Convert.ToDecimal(Console.ReadLine(), CultureInfo.InvariantCulture);
+                Viajando = true;
+            }
+            catch (Exception e) { Console.WriteLine(e.Message); }
+          
+            //Controle do clima
+            Console.Write("Qual o clima da viajem(bom/ruim):");
+            string estado = Console.ReadLine();
+            if (estado.ToUpper() == "RUIM")
+                clima = true;
+            do
+            {
+                Viajando = true;
+                do
                 {
-                    //Tamanho da Viajem
-                    Console.Write("Digite o tamanho da viagem:");
-                    Viagem = Convert.ToDecimal(Console.ReadLine(), CultureInfo.InvariantCulture);
-                    bool Viajando = true;
-                    //Controle do clima
-                    Console.Write("Qual o clima da viajem(bom/ruim):");
-                    string estado = Console.ReadLine();
-                    if (estado.ToUpper() == "RUIM")
-                        clima = true;
-                    
-                    do
+                    Console.WriteLine("Digite 1 para dirigir\nDigite 2 para abastecer\nDigite 3 para exibir a quantidade de combustível atual\nDigite 4 para ver todos os dados do veiculo");
+                    string opcao = Console.ReadLine();
+                    //Viagem Carros                                            
+                    Carros[i].Clima = clima;
+                    switch (opcao)
                     {
-                        Console.WriteLine("Digite 1 para dirigir\nDigite 2 para abastecer\nDigite 3 para exibir a quantidade de combustível atual\nDigite 4 para ver todos os dados do veiculo");
-                        string opcao = Console.ReadLine();
-                        //Viagem Carros                                            
-                            Carros[i].Clima = clima;
-                            switch (opcao)
-                            {
-                                case "1": { Console.WriteLine("Por quantos km's deseja dirigir ?"); Carros[i].Dirigir(Convert.ToDecimal(Console.ReadLine()), Viagem); break; }
-                                case "2": { Console.WriteLine("Quantos litros deseja abastecer ?"); Carros[i].Abastecer(Convert.ToDecimal(Console.ReadLine())); break; }
-                                case "3": { Console.WriteLine("Quantidade do tanque atual:"); Console.WriteLine($"{Math.Round(Carros[i].QntTanqueAtual, 2)} litros \n"); break; }
-                                case "4": { Console.WriteLine(Carros[i].ToString()); break; }
-                                default:
-                                    break;
-                            }                       
-                    } while (Viajando == true);
-                    i++;
-                }
-                catch (Exception e) { Console.WriteLine(e.Message); }
+                        case "1": { Console.WriteLine("Por quantos km's deseja dirigir ?"); Carros[i].Dirigir(Convert.ToDecimal(Console.ReadLine()), Viagem); break; }
+                        case "2": { Console.WriteLine("Quantos litros deseja abastecer ?"); Carros[i].Abastecer(Convert.ToDecimal(Console.ReadLine())); break; }
+                        case "3": { Console.WriteLine("Quantidade do tanque atual:"); Console.WriteLine($"{Math.Round(Carros[i].QntTanqueAtual, 2)} litros \n"); break; }
+                        case "4": { Console.WriteLine(Carros[i].ToString()); break; }
+                        default:
+                            break;
+                    }
+                } while (Viajando == true);
+                i++;
+
             } while (Carros[0].viagem != Viagem || Carros[1].viagem != Viagem || Carros[2].viagem != Viagem);
         }
     }

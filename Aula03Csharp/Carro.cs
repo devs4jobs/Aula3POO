@@ -13,12 +13,13 @@ namespace Aula03Csharp
 
             if (AutonomiaAtual() >= xKms)
             {
-                //Define termino da viajem
                 viagem += xKms;
+                //Define termino da viajem
                 if (viagem > Viagem)
                 {
+                    xKms -= Viagem - viagem;
                     viagem = Viagem;
-                    Console.WriteLine("Você chegou ao seu destino");
+                    Console.WriteLine($"Você chegou ao seu destino. Combustível atual : {Math.Round(Consumo(xKms), 2)} litros!\nFalta{Viagem-viagem}");
                 }
                 else if(Math.Round(Consumo(xKms),2)==0)
                     Console.WriteLine($"O carro avançou {xKms} quilometro(s). Combustível atual : {Math.Round(Consumo(xKms), 2)} litros - Abasteça-o!\nFalta{Viagem-viagem}");
