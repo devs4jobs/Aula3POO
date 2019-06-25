@@ -21,6 +21,7 @@ namespace Aula03Csharp
                     string Pais = Console.ReadLine();
                     Console.WriteLine("O Veiculo é Flex?(s/n)");
                     char s = Convert.ToChar(Console.ReadLine());
+                    //Validação flex
                     if (s == 's' || s == 'S')
                         flex = true;
                     else flex = false;
@@ -30,11 +31,13 @@ namespace Aula03Csharp
                     decimal Quan = Convert.ToDecimal(Console.ReadLine(),CultureInfo.InvariantCulture);
                     Console.WriteLine("O filtro de combustivo esta sujo?(S/N)");
                     s = Convert.ToChar(Console.ReadLine());
+                    //Validação do filtro
                     if (s == 's' || s == 'S')
                         filtro = true;
                     else filtro = false;
                     Console.WriteLine("O Veiculo é moto ou carro?");
                     string veiculo = Console.ReadLine();
+                    //Finalização do registro caso carro
                     if (veiculo.ToUpper() == "CARRO")
                     {
                         Console.WriteLine("Digite o Modelo do veiculo:");
@@ -52,7 +55,8 @@ namespace Aula03Csharp
                             car++;
                         }
                     }
-                    if (veiculo.ToUpper() == "MOTO")
+                    //finalização do registro caso moto
+                    else if (veiculo.ToUpper() == "MOTO")
                     {
                         Console.WriteLine("Digite as Cilindradas:");
                         potencia = Convert.ToInt32(Console.ReadLine());
@@ -66,6 +70,10 @@ namespace Aula03Csharp
                             i++;
                             moto++;
                         }
+                    }//Caso nenhum
+                    else
+                    { Console.WriteLine("Digite um carro ou moto da proxima vez.");
+                        Console.ReadLine();
                     }
                     Console.Clear();
                 }catch(Exception e){Console.WriteLine(e.Message);}
@@ -74,16 +82,14 @@ namespace Aula03Csharp
             {
                 try
                 {
+                    //Tamanho da Viajem
                     Console.Write("Digite o tamanho da viagem:");
                     Viagem = Convert.ToDecimal(Console.ReadLine(), CultureInfo.InvariantCulture);
-
-
                     bool Viajando = true;
                     Console.Write("Viajar com Carro ou Moto?");
                     string ESCOLHA = Console.ReadLine();
                     if (ESCOLHA.ToUpper() == "CARRO")
-                    {
-                        i = 0;
+                    { i = 0;
                         foreach (Carro C in Carros)
                         {
                             Console.WriteLine($"Carro:{C.Marca}  Numero:{i + 1}");
@@ -113,6 +119,7 @@ namespace Aula03Csharp
                     {
                         Console.WriteLine("Digite 1 para dirigir\nDigite 2 para abastecer\nDigite 3 para exibir a quantidade de combustível atual\nDigite 4 para parar a viajem\nDigite 5 para ver todos os dados do veiculo");
                         string opcao = Console.ReadLine();
+                        //Viagem Carros
                         if (ESCOLHA.ToUpper() == "CARRO")
                         {
                             Carros[i].Clima = clima;
@@ -127,6 +134,7 @@ namespace Aula03Csharp
                                     break;
                             }
                         }
+                        //Viagem Motos
                         if (ESCOLHA.ToUpper() == "MOTO")
                         {
                             Motos[i].Clima = clima;

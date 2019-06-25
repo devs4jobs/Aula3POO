@@ -11,6 +11,7 @@ namespace Aula03Csharp
         {
 
         }
+        //Contrutor moto
         public Moto(string marca,string pais,decimal qnttanque,bool flex,decimal qtdAtual, bool filtro, int cilindradas):base(marca,pais,qnttanque,flex,qtdAtual,filtro)
         {
             Cilindradas = cilindradas;
@@ -20,6 +21,7 @@ namespace Aula03Csharp
 
             if (AutonomiaAtual() >= xKms)
             {
+                //Define termino da viajem
                 viagem += xKms;
                 if (viagem > Viagem)
                 {
@@ -35,7 +37,7 @@ namespace Aula03Csharp
 
         }
         public override decimal AutonomiaAtual()
-        {
+        {   
             if (Clima && FiltroCombustivelEntupido) { return QntTanqueAtual * (KmPorLitro - (KmPorLitro * 40 / 100)); }
             else if (Clima||FiltroCombustivelEntupido) { return QntTanqueAtual * (KmPorLitro - (KmPorLitro * 20 / 100)); }
             else return QntTanqueAtual * KmPorLitro;
@@ -46,6 +48,7 @@ namespace Aula03Csharp
             else if (Clima||FiltroCombustivelEntupido){return QntTanqueAtual -= xKms / (KmPorLitro + (KmPorLitro * 20 / 100));}
             else return QntTanqueAtual -= xKms / KmPorLitro;
         }
+        //Impressão das caracteristicas da moto
         public override string ToString()
         {
             return "Marca:" + Marca

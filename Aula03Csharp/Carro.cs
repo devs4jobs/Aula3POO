@@ -20,13 +20,14 @@ namespace Aula03Csharp
 
             if (AutonomiaAtual() >= xKms)
             {
+                //Define termino da viajem
                 viagem += xKms;
                 if (viagem > Viagem)
                 {
                     viagem = Viagem;
                     Console.WriteLine("Você ja chegou ao seu destino");
                 }
-                if(Math.Round(Consumo(xKms),2)==0)
+                else if(Math.Round(Consumo(xKms),2)==0)
                     Console.WriteLine($"O carro avançou {xKms} quilometro(s). Combustível atual : {Math.Round(Consumo(xKms), 2)} litros - Abasteça-o!");
                 else
                     Console.WriteLine($"O carro avançou {xKms} quilometro(s). Combustível atual : {Math.Round(Consumo(xKms), 2)} litros.");
@@ -36,7 +37,7 @@ namespace Aula03Csharp
         }
         public override decimal AutonomiaAtual()
         {
-            if (Clima && FiltroCombustivelEntupido) { return QntTanqueAtual * KmPorLitro - (KmPorLitro * 40 / 100); }
+            if (Clima && FiltroCombustivelEntupido) { return QntTanqueAtual * KmPorLitro - (KmPorLitro * 35 / 100); }
             else if (Clima) { return QntTanqueAtual * KmPorLitro - (KmPorLitro * 15 / 100); }
             else if (FiltroCombustivelEntupido) { return QntTanqueAtual * KmPorLitro - (KmPorLitro * 20 / 100); }
             else return QntTanqueAtual * KmPorLitro;
@@ -44,11 +45,12 @@ namespace Aula03Csharp
         public decimal Consumo(decimal xKms)
         {
 
-            if (FiltroCombustivelEntupido && Clima) { return QntTanqueAtual -= xKms / KmPorLitro - (KmPorLitro * 35 / 100); }
-            else if (FiltroCombustivelEntupido) { return QntTanqueAtual -= xKms / KmPorLitro - (KmPorLitro * 20 / 100); }
-            else if (Clima) {return QntTanqueAtual -= xKms / KmPorLitro - (KmPorLitro * 15 / 100); }
+            if (FiltroCombustivelEntupido && Clima) { return QntTanqueAtual -= xKms / KmPorLitro + (KmPorLitro * 35 / 100); }
+            else if (FiltroCombustivelEntupido) { return QntTanqueAtual -= xKms / KmPorLitro + (KmPorLitro * 20 / 100); }
+            else if (Clima) {return QntTanqueAtual -= xKms / KmPorLitro + (KmPorLitro * 15 / 100); }
             else return QntTanqueAtual -= xKms / KmPorLitro;
         }
+        //Impressão das caracteristicas dos Carros
         public override string ToString()
         {
             return "Marca:" + Marca
