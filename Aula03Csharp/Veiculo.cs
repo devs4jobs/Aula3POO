@@ -4,6 +4,7 @@ namespace Aula03Csharp
 {
     public class Veiculo
     {
+        public string Modelo;
         public string Marca;
         public string PaisDeOrigem;
         public decimal QntTanqueCombustivel;
@@ -13,16 +14,6 @@ namespace Aula03Csharp
         public bool FiltroCombustivelEntupido;
         public decimal viagem = 0;
         public bool Clima;
-        public Veiculo(string marca, string paisOrigem, decimal qntTanque, bool flex,decimal qtdAtual,bool filtro)
-        {
-
-            Marca = marca;
-            PaisDeOrigem = paisOrigem;
-            QntTanqueCombustivel = qntTanque;
-            Flex = flex;
-            QntTanqueAtual = qtdAtual;
-            FiltroCombustivelEntupido = filtro;
-        }
 
         public Veiculo()
         {
@@ -51,7 +42,7 @@ namespace Aula03Csharp
             else
                 Console.WriteLine($"Carro abastecido! Tanque atual: {Math.Round(QntTanqueAtual,2)}");
 
-            Console.WriteLine("Tanque cheio!");
+            Console.WriteLine($"Tanque abatescido:{QntTanqueAtual}");
         }
     }
 }

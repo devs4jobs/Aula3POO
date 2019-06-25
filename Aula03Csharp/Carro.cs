@@ -5,16 +5,9 @@ namespace Aula03Csharp
     public class Carro : Veiculo
     {
         public int Cavalos;
-        public string Modelo;
         public Carro()
         {
         }
-        public Carro(string marca,string paisOrigem,decimal QtTanque,bool flex,decimal QtdAtual, bool filtro, int cavalos,string modelo) : base(marca, paisOrigem, QtTanque, flex, QtdAtual,filtro)
-        {
-            Cavalos = cavalos;
-            Modelo = modelo;
-        }
-
         public void Dirigir(decimal xKms,decimal Viagem)
         {
 
@@ -45,9 +38,9 @@ namespace Aula03Csharp
         public decimal Consumo(decimal xKms)
         {
 
-            if (FiltroCombustivelEntupido && Clima) { return QntTanqueAtual -= xKms / KmPorLitro + (KmPorLitro * 35 / 100); }
-            else if (FiltroCombustivelEntupido) { return QntTanqueAtual -= xKms / KmPorLitro + (KmPorLitro * 20 / 100); }
-            else if (Clima) {return QntTanqueAtual -= xKms / KmPorLitro + (KmPorLitro * 15 / 100); }
+            if (FiltroCombustivelEntupido && Clima) { return QntTanqueAtual -= xKms / KmPorLitro - (KmPorLitro * 35 / 100); }
+            else if (FiltroCombustivelEntupido) { return QntTanqueAtual -= xKms / KmPorLitro - (KmPorLitro * 20 / 100); }
+            else if (Clima) {return QntTanqueAtual -= xKms / KmPorLitro - (KmPorLitro * 15 / 100); }
             else return QntTanqueAtual -= xKms / KmPorLitro;
         }
         //Impressão das caracteristicas dos Carros

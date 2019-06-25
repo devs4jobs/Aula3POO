@@ -11,11 +11,6 @@ namespace Aula03Csharp
         {
 
         }
-        //Contrutor moto
-        public Moto(string marca,string pais,decimal qnttanque,bool flex,decimal qtdAtual, bool filtro, int cilindradas):base(marca,pais,qnttanque,flex,qtdAtual,filtro)
-        {
-            Cilindradas = cilindradas;
-        }
         public void Dirigir(decimal xKms,decimal Viagem)
         {
 
@@ -52,11 +47,12 @@ namespace Aula03Csharp
         public override string ToString()
         {
             return "Marca:" + Marca
+                + "\nModelo:" + Modelo
                 + "\nTanque:" + QntTanqueCombustivel
                 + "\nTanque Atual:" + QntTanqueAtual
                 + "\nFlex:" + Flex
-                + "\nFiltroEntupiu:" + FiltroCombustivelEntupido
-                + "\nPotencia:" + Cilindradas;
+                + "\nFiltro:" + FiltroCombustivelEntupido
+                +"\nPotencia:" + Cilindradas;
 
         }
     }
