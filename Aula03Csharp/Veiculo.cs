@@ -42,7 +42,7 @@ namespace Aula03Csharp
             else
                 Console.WriteLine($"Carro abastecido! Tanque atual: {Math.Round(QntTanqueAtual,2)}");
 
-            Console.WriteLine($"Tanque abatescido:{QntTanqueAtual}");
+            Console.WriteLine($"Tanque abastecido:{QntTanqueAtual}");
         }
     }
 }
