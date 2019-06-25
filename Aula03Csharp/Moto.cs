@@ -11,15 +11,9 @@ namespace Aula03Csharp
         {
 
         }
-        public Moto(string marca,string pais,decimal qnttanque,bool flex,decimal qtdAtual,int cilindradas,bool filtro):base(marca,pais,qnttanque,flex,qtdAtual)
+        public Moto(string marca,string pais,decimal qnttanque,bool flex,decimal qtdAtual, bool filtro, int cilindradas):base(marca,pais,qnttanque,flex,qtdAtual,filtro)
         {
-            Marca = marca;
-            PaisDeOrigem = pais;
-            QntTanqueCombustivel = qnttanque;
-            Flex = flex;
-            QntTanqueAtual = qtdAtual;
             Cilindradas = cilindradas;
-            FiltroCombustivelEntupido = filtro;
         }
         public void Dirigir(decimal xKms,decimal Viagem)
         {
@@ -42,15 +36,25 @@ namespace Aula03Csharp
         }
         public override decimal AutonomiaAtual()
         {
-            if (Clima && FiltroCombustivelEntupido) { return QntTanqueAtual * KmPorLitro - (KmPorLitro * 40 / 100); }
-            else if (Clima||FiltroCombustivelEntupido) { return QntTanqueAtual * KmPorLitro - (KmPorLitro * 20 / 100); }
+            if (Clima && FiltroCombustivelEntupido) { return QntTanqueAtual * (KmPorLitro - (KmPorLitro * 40 / 100)); }
+            else if (Clima||FiltroCombustivelEntupido) { return QntTanqueAtual * (KmPorLitro - (KmPorLitro * 20 / 100)); }
             else return QntTanqueAtual * KmPorLitro;
         }
         public decimal Consumo(decimal xKms)
         {
-            if (Clima && FiltroCombustivelEntupido){return QntTanqueAtual -= xKms / KmPorLitro + (KmPorLitro * 40 / 100);}
-            else if (Clima||FiltroCombustivelEntupido){return QntTanqueAtual -= xKms / KmPorLitro + (KmPorLitro * 20 / 100);}
+            if (Clima && FiltroCombustivelEntupido){return QntTanqueAtual -= xKms / (KmPorLitro +(KmPorLitro * 40 / 100));}
+            else if (Clima||FiltroCombustivelEntupido){return QntTanqueAtual -= xKms / (KmPorLitro + (KmPorLitro * 20 / 100));}
             else return QntTanqueAtual -= xKms / KmPorLitro;
+        }
+        public override string ToString()
+        {
+            return "Marca:" + Marca
+                + "\nTanque:" + QntTanqueCombustivel
+                + "\nTanque Atual:" + QntTanqueAtual
+                + "\nFlex:" + Flex
+                + "\nFiltroEntupiu:" + FiltroCombustivelEntupido
+                + "\nPotencia:" + Cilindradas;
+
         }
     }
 }

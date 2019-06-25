@@ -13,7 +13,7 @@ namespace Aula03Csharp
         public bool FiltroCombustivelEntupido;
         public decimal viagem = 0;
         public bool Clima;
-        public Veiculo(string marca, string paisOrigem, decimal qntTanque, bool flex,decimal qtdAtual)
+        public Veiculo(string marca, string paisOrigem, decimal qntTanque, bool flex,decimal qtdAtual,bool filtro)
         {
 
             Marca = marca;
@@ -21,6 +21,7 @@ namespace Aula03Csharp
             QntTanqueCombustivel = qntTanque;
             Flex = flex;
             QntTanqueAtual = qtdAtual;
+            FiltroCombustivelEntupido = filtro;
         }
 
         public Veiculo()
@@ -32,8 +33,8 @@ namespace Aula03Csharp
 
         public virtual decimal AutonomiaAtual()
         {
-            if (Clima && FiltroCombustivelEntupido){return QntTanqueAtual * KmPorLitro + (KmPorLitro * 40 / 100);}
-            if (Clima) { return QntTanqueAtual * KmPorLitro + (KmPorLitro * 20 / 100); }
+            if (Clima && FiltroCombustivelEntupido){return QntTanqueAtual * KmPorLitro - (KmPorLitro * 40 / 100);}
+            if (Clima) { return QntTanqueAtual * KmPorLitro - (KmPorLitro * 20 / 100); }
             return QntTanqueAtual * KmPorLitro;
         }
 

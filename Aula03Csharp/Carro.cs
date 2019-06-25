@@ -9,16 +9,10 @@ namespace Aula03Csharp
         public Carro()
         {
         }
-        public Carro(string marca,string paisOrigem,decimal QtTanque,bool flex,decimal QtdAtual,int cavalos,string modelo,bool filtro) : base(marca, paisOrigem, QtTanque, flex, QtdAtual)
+        public Carro(string marca,string paisOrigem,decimal QtTanque,bool flex,decimal QtdAtual, bool filtro, int cavalos,string modelo) : base(marca, paisOrigem, QtTanque, flex, QtdAtual,filtro)
         {
-            Marca = marca;
-            PaisDeOrigem = paisOrigem;
-            QntTanqueCombustivel = QtTanque;
-            Flex = flex;
-            QntTanqueAtual = QtdAtual;
             Cavalos = cavalos;
             Modelo = modelo;
-            FiltroCombustivelEntupido = filtro;
         }
 
         public void Dirigir(decimal xKms,decimal Viagem)
@@ -42,18 +36,29 @@ namespace Aula03Csharp
         }
         public override decimal AutonomiaAtual()
         {
-            if (Clima && FiltroCombustivelEntupido) { return QntTanqueAtual * KmPorLitro + (KmPorLitro * 40 / 100); }
-            else if (Clima) { return QntTanqueAtual * KmPorLitro + (KmPorLitro * 15 / 100); }
-            else if (FiltroCombustivelEntupido) { return QntTanqueAtual * KmPorLitro + (KmPorLitro * 20 / 100); }
+            if (Clima && FiltroCombustivelEntupido) { return QntTanqueAtual * KmPorLitro - (KmPorLitro * 40 / 100); }
+            else if (Clima) { return QntTanqueAtual * KmPorLitro - (KmPorLitro * 15 / 100); }
+            else if (FiltroCombustivelEntupido) { return QntTanqueAtual * KmPorLitro - (KmPorLitro * 20 / 100); }
             else return QntTanqueAtual * KmPorLitro;
         }
         public decimal Consumo(decimal xKms)
         {
 
-            if (FiltroCombustivelEntupido && Clima) { return QntTanqueAtual -= xKms / KmPorLitro + (KmPorLitro * 35 / 100); }
-            else if (FiltroCombustivelEntupido) { return QntTanqueAtual -= xKms / KmPorLitro + (KmPorLitro * 20 / 100); }
-            else if (Clima) {return QntTanqueAtual -= xKms / KmPorLitro + (KmPorLitro * 15 / 100); }
+            if (FiltroCombustivelEntupido && Clima) { return QntTanqueAtual -= xKms / KmPorLitro - (KmPorLitro * 35 / 100); }
+            else if (FiltroCombustivelEntupido) { return QntTanqueAtual -= xKms / KmPorLitro - (KmPorLitro * 20 / 100); }
+            else if (Clima) {return QntTanqueAtual -= xKms / KmPorLitro - (KmPorLitro * 15 / 100); }
             else return QntTanqueAtual -= xKms / KmPorLitro;
+        }
+        public override string ToString()
+        {
+            return "Marca:" + Marca
+                + "\nModelo:" + Modelo
+                + "\nTanque:" + QntTanqueCombustivel
+                + "\nTanque Atual:" + QntTanqueAtual
+                + "\nFlex:" + Flex
+                + "\nFiltroEntupiu:" + FiltroCombustivelEntupido
+                + "\nPotencia:" + Cavalos;
+                
         }
 
     }

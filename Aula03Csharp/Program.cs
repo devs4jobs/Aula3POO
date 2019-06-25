@@ -8,6 +8,7 @@ namespace Aula03Csharp
         static void Main(string[] args)
         {   int i = 0,potencia,car=0,moto=0;
             bool flex,filtro,clima=false;
+            decimal Viagem = 0;
             List<Carro> Carros = new List<Carro>();
             List<Moto> Motos = new List<Moto>();
             do
@@ -40,7 +41,7 @@ namespace Aula03Csharp
                         string nome = Console.ReadLine();
                         Console.WriteLine("Digite os Cavalos:");
                         potencia = Convert.ToInt32(Console.ReadLine());
-                        Carro carrinho = new Carro(Marca, Pais, QtdT, flex, Quan, potencia, nome, filtro);
+                        Carro carrinho = new Carro(Marca, Pais, QtdT, flex, Quan,filtro, potencia, nome);
                         Console.Write("Quantos KM faz por Litro");
                         decimal Km = Convert.ToDecimal(Console.ReadLine(),CultureInfo.InvariantCulture);
                         carrinho.KmLitro(Km);
@@ -55,7 +56,7 @@ namespace Aula03Csharp
                     {
                         Console.WriteLine("Digite as Cilindradas:");
                         potencia = Convert.ToInt32(Console.ReadLine());
-                        Moto motinha = new Moto(Marca, Pais, QtdT, flex, Quan, potencia, filtro);
+                        Moto motinha = new Moto(Marca, Pais, QtdT, flex, Quan,filtro, potencia);
                         Console.Write("Quantos KM faz por Litro");
                         decimal Km = Convert.ToDecimal(Console.ReadLine(), CultureInfo.InvariantCulture);
                         motinha.KmLitro(Km);
@@ -69,12 +70,14 @@ namespace Aula03Csharp
                     Console.Clear();
                 }catch(Exception e){Console.WriteLine(e.Message);}
             } while (i < 5);
-            try
+            do
             {
-                Console.Write("Digite o tamanho da viagem:");
-                decimal Viagem = Convert.ToDecimal(Console.ReadLine(), CultureInfo.InvariantCulture);
-                while (Motos[0].viagem != Viagem || Motos[1].viagem != Viagem || Carros[0].viagem != Viagem || Carros[1].viagem != Viagem || Carros[2].viagem != Viagem)
+                try
                 {
+                    Console.Write("Digite o tamanho da viagem:");
+                    Viagem = Convert.ToDecimal(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+
                     bool Viajando = true;
                     Console.Write("Viajar com Carro ou Moto?");
                     string ESCOLHA = Console.ReadLine();
@@ -100,17 +103,18 @@ namespace Aula03Csharp
                     i = Convert.ToInt32(Console.ReadLine());
                     i -= 1;
                     //Controle do clima
-                    Console.Write("Qual o clima da viajem(bom/ruim");
+                    Console.Write("Qual o clima da viajem(bom/ruim):");
                     string estado = Console.ReadLine();
                     if (estado.ToUpper() == "BOM")
                         clima = false;
-                    else if(estado.ToUpper()=="RUIM")
+                    else if (estado.ToUpper() == "RUIM")
                         clima = true;
                     do
                     {
-                        Console.WriteLine("Digite 1 para dirigir\nDigite 2 para abastecer\nDigite 3 para exibir a quantidade de combustível atual\nDigite 4 para terminar a viajem");
+                        Console.WriteLine("Digite 1 para dirigir\nDigite 2 para abastecer\nDigite 3 para exibir a quantidade de combustível atual\nDigite 4 para parar a viajem\nDigite 5 para ver todos os dados do veiculo");
                         string opcao = Console.ReadLine();
                         if (ESCOLHA.ToUpper() == "CARRO")
+                        {
                             Carros[i].Clima = clima;
                             switch (opcao)
                             {
@@ -118,10 +122,13 @@ namespace Aula03Csharp
                                 case "2": { Console.WriteLine("Quantos litros deseja abastecer ?"); Carros[i].Abastecer(Convert.ToDecimal(Console.ReadLine())); break; }
                                 case "3": { Console.WriteLine("Quantidade do tanque atual:"); Console.WriteLine($"{Math.Round(Carros[i].QntTanqueAtual, 2)} litros \n"); break; }
                                 case "4": { Viajando = false; break; }
+                                case "5": { Console.WriteLine(Carros[i].ToString()); break; }
                                 default:
                                     break;
                             }
+                        }
                         if (ESCOLHA.ToUpper() == "MOTO")
+                        {
                             Motos[i].Clima = clima;
                             switch (opcao)
                             {
@@ -129,12 +136,16 @@ namespace Aula03Csharp
                                 case "2": { Console.WriteLine("Quantos litros deseja abastecer ?"); Motos[i].Abastecer(Convert.ToDecimal(Console.ReadLine())); break; }
                                 case "3": { Console.WriteLine("Quantidade do tanque atual:"); Console.WriteLine($"{Math.Round(Motos[i].QntTanqueAtual, 2)} litros \n"); break; }
                                 case "4": { Viajando = false; break; }
+                                case "5": { Console.WriteLine(Motos[i].ToString()); break; }
                                 default:
                                     break;
                             }
+                        }
                     } while (Viajando == true);
+
                 }
-            }catch (Exception e){ Console.WriteLine(e.Message); }
+                catch (Exception e) { Console.WriteLine(e.Message); }
+            } while (Motos[0].viagem != Viagem || Motos[1].viagem != Viagem || Carros[0].viagem != Viagem || Carros[1].viagem != Viagem || Carros[2].viagem != Viagem);
         }
     }
 }
