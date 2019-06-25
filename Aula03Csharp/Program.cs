@@ -54,6 +54,11 @@ namespace Aula03Csharp
                             i++;
                             car++;
                         }
+                        else
+                        {
+                            Console.WriteLine("Numero maximo de carros atingido");
+                            Console.ReadLine();
+                        }
                     }
                     //finalização do registro caso moto
                     else if (veiculo.ToUpper() == "MOTO")
@@ -69,6 +74,11 @@ namespace Aula03Csharp
                             Motos.Add(motinha);
                             i++;
                             moto++;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Numero maximo de motos atingido");
+                            Console.ReadLine();
                         }
                     }//Caso nenhum
                     else
