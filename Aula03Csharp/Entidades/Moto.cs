@@ -37,8 +37,8 @@ namespace Aula03Csharp
                 viagem += xKms;
                 if (viagem >= Viagem)
                 {
-                    viagem = Viagem;
-                    Console.WriteLine("Você chegou ao destino");
+                    xKms -= viagem - Viagem;
+                    Console.WriteLine($"O moto avançou {xKms} quilometro(s). Combustível atual : {Math.Round(Consumo(xKms), 2)} litros - Abasteça-o!\n Você chegou!");
                 }
                 if(Math.Round(Consumo(xKms),2)==0)
                     Console.WriteLine($"O moto avançou {xKms} quilometro(s). Combustível atual : {Math.Round(Consumo(xKms), 2)} litros - Abasteça-o!\nFalta:{Viagem-viagem}");
