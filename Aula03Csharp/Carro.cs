@@ -26,12 +26,12 @@ namespace Aula03Csharp
         public decimal Consumo(decimal xKms, string clima)
         {
             if (FiltroCombustivelEntupido)
-                return QntTanqueAtual -= xKms / ( KmPorLitro + (KmPorLitro * 20 / 100 ));
+                return QntTanqueAtual -= xKms / (  KmPorLitro - (KmPorLitro * 20 / 100 ));
             else if (clima == "RUIM")
-                return QntTanqueAtual -= xKms / ( KmPorLitro + (KmPorLitro * 15 / 100));
+                return QntTanqueAtual -= xKms / ( KmPorLitro - (KmPorLitro * 15 / 100));
             else if (FiltroCombustivelEntupido && clima == "RUIM")
 
-                return QntTanqueAtual -= xKms / ( KmPorLitro + (KmPorLitro * 35 / 100));
+                return QntTanqueAtual -= xKms / ( KmPorLitro - (KmPorLitro * 35 / 100));
 
             else
                 return QntTanqueAtual -= xKms / KmPorLitro;
