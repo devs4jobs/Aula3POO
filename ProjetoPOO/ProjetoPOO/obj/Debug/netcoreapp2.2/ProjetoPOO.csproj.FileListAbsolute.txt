@@ -1,0 +1,11 @@
+C:\Users\Treinamento 6\source\repos\ProjetoPOO\ProjetoPOO\bin\Debug\netcoreapp2.2\ProjetoPOO.deps.json
+C:\Users\Treinamento 6\source\repos\ProjetoPOO\ProjetoPOO\bin\Debug\netcoreapp2.2\ProjetoPOO.runtimeconfig.json
+C:\Users\Treinamento 6\source\repos\ProjetoPOO\ProjetoPOO\bin\Debug\netcoreapp2.2\ProjetoPOO.runtimeconfig.dev.json
+C:\Users\Treinamento 6\source\repos\ProjetoPOO\ProjetoPOO\bin\Debug\netcoreapp2.2\ProjetoPOO.dll
+C:\Users\Treinamento 6\source\repos\ProjetoPOO\ProjetoPOO\bin\Debug\netcoreapp2.2\ProjetoPOO.pdb
+C:\Users\Treinamento 6\source\repos\ProjetoPOO\ProjetoPOO\obj\Debug\netcoreapp2.2\ProjetoPOO.csprojAssemblyReference.cache
+C:\Users\Treinamento 6\source\repos\ProjetoPOO\ProjetoPOO\obj\Debug\netcoreapp2.2\ProjetoPOO.csproj.CoreCompileInputs.cache
+C:\Users\Treinamento 6\source\repos\ProjetoPOO\ProjetoPOO\obj\Debug\netcoreapp2.2\ProjetoPOO.AssemblyInfoInputs.cache
+C:\Users\Treinamento 6\source\repos\ProjetoPOO\ProjetoPOO\obj\Debug\netcoreapp2.2\ProjetoPOO.AssemblyInfo.cs
+C:\Users\Treinamento 6\source\repos\ProjetoPOO\ProjetoPOO\obj\Debug\netcoreapp2.2\ProjetoPOO.dll
+C:\Users\Treinamento 6\source\repos\ProjetoPOO\ProjetoPOO\obj\Debug\netcoreapp2.2\ProjetoPOO.pdb
