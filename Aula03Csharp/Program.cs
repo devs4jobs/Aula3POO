@@ -47,7 +47,7 @@ namespace Aula03Csharp
                     Viagem = Convert.ToDecimal(Console.ReadLine(), CultureInfo.InvariantCulture);
                 }
                 catch (Exception e) { Console.WriteLine(e.Message); }
-            } while (Viagem > 0);
+            } while (Viagem <= 0);
             //Controle do clima
             Console.Write("Qual o clima da viajem(bom/ruim):");
             string estado = Console.ReadLine();
