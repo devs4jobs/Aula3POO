@@ -9,17 +9,19 @@ namespace Aula03Csharp
         public decimal QntTanqueCombustivel;
         public decimal QntTanqueAtual;
         public bool Flex;
-        public decimal KmPorLitro = 8;
-
+        public decimal KmPorLitro;
+        public bool FiltroCombustivelEntupido;
+        public string Modelo;
+        public int potencia;
+        public bool climaruim;
+        public decimal viajar = 0;
 
         public Veiculo(string marca, string paisOrigem, decimal qntTanque, bool flex)
         {
-
             Marca = marca;
             PaisDeOrigem = paisOrigem;
             QntTanqueCombustivel = qntTanque;
             Flex = flex;
-
         }
 
         public Veiculo()
@@ -29,10 +31,25 @@ namespace Aula03Csharp
 
         public void KmLitro(decimal kmPorLitro) { KmPorLitro = kmPorLitro; }
 
-        public decimal AutonomiaAtual() { return QntTanqueAtual * KmPorLitro; }
+        public decimal AutonomiaAtual(bool moto, string clima)
+        {
+            if (FiltroCombustivelEntupido && clima == "RUIM")
+                return QntTanqueAtual * (KmPorLitro - (KmPorLitro * 35 / 100));
+            else if (FiltroCombustivelEntupido)
+                return QntTanqueAtual * (KmPorLitro - (KmPorLitro * 20 / 100));
+            else if (clima == "RUIM")
+                return QntTanqueAtual * (KmPorLitro - (KmPorLitro * 15 / 100));
+            else if (FiltroCombustivelEntupido && clima == "RUIM" && moto == true)
+                return QntTanqueAtual * (KmPorLitro - (KmPorLitro * 40 / 100));
+            else if (FiltroCombustivelEntupido || clima == "RUIM" && moto == true)
+                return QntTanqueAtual * (KmPorLitro - (KmPorLitro * 20 / 100));
+
+            else return QntTanqueAtual * KmPorLitro;
+        }
 
         public void Abastecer(decimal litros)
         {
+
             if (QntTanqueAtual == QntTanqueCombustivel)
                 Console.WriteLine("Tanque cheio!");
 
@@ -42,9 +59,9 @@ namespace Aula03Csharp
                 else
                     QntTanqueAtual += litros;
             else
-                Console.WriteLine($"Carro abastecido! Tanque atual: {Math.Round(QntTanqueAtual,2)}");
+                Console.WriteLine($"Carro abastecido! Tanque atual: {Math.Round(QntTanqueAtual, 2)}");
 
-            Console.WriteLine("Tanque cheio!");
+            Console.WriteLine("Tanque abastecido");
         }
     }
 }
