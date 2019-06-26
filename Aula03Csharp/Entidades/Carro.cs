@@ -44,7 +44,7 @@ namespace Aula03Csharp
                     Console.WriteLine($"O carro avançou {xKms} quilometro(s). Combustível atual : {Math.Round(Consumo(xKms), 2)} litros.\nFalta:{Viagem-viagem}");
             }
             else
-                Console.WriteLine($"O carro não possui combustível suficiente. Combustível atual: {Math.Round(QntTanqueAtual, 2)} - Abasteça-o!");
+                Console.WriteLine($"O carro avançou {xKms} quilometro(s). Combustível atual : {Math.Round(Consumo(AutonomiaAtual()), 2)} litros - Abasteça-o!\nFalta{Viagem - viagem}");
         }
         public override decimal AutonomiaAtual()
         {
