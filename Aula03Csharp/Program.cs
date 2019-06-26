@@ -7,117 +7,212 @@ namespace Aula03Csharp
     {
         static void Main(string[] args)
         {
-            Metedos metedos = new Metedos();
-            string flex1 ;
-            bool Flex = false;
-            string op = "";
-            string Modelo;
-            string Marca;
-            string PaisDeOrigem;
-            
-            List<Veiculo> veiculos1 = new List<Veiculo>();
+            string retorno = "";
 
-            int contMotos = 0, contCarros = 0 , vei = 0;
-
+            string escolher = "";
 
             do
             {
-                
 
-                Console.Clear();
+                List<Carro> carros = new List<Carro>();
+                List<Moto> motos = new List<Moto>();
 
-                Console.WriteLine("Digite o Modelo do Veiculo Ex: Corolla \n");
-                Modelo = Console.ReadLine();
+                for (int i = 0; i < 3; i++)
+                {
+                    try
+                    {
+                        Carro carro = new Carro();
 
-                Console.WriteLine("Digite a Marca do Carro Ex: Toyota \n");
-                Marca = Console.ReadLine();
+                        Console.WriteLine("DIGITE A MARCA DO CARRO : ");
+                        carro.Marca = Console.ReadLine();
 
-                Console.WriteLine("Digite o Pais de Origem do Carro Ex: China");
-                PaisDeOrigem = Console.ReadLine();
+                        Console.WriteLine("DIGITE O MODELO DO CARRO: ");
+                        carro.Modelo = Console.ReadLine();
 
-                Console.WriteLine("Digite se o Veiculo é Flex : Ex : Sim ou Não !! \n ");
-                flex1 = Console.ReadLine();
-              
-                if (flex1.ToString().ToUpper() == "SIM") { Flex = true; }
+                        Console.WriteLine("DIGITE O PAIS DE ORIGEM DO CARRO : ");
+                        carro.PaisDeOrigem = Console.ReadLine();
 
-                Console.WriteLine("Digite a Quantidade atual de Litros no Tanque: Ex : 10 \n ");
-                double QntTanqueAtual = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine("O CARRO É FLEX ? SIM OU NAO ? ");
+                        retorno = Console.ReadLine().ToUpper();
 
-                Console.WriteLine("Digite a Quantidade de Litros que o Tanque Comporta Ex : 50  \n");
-                double QntTanqueCombustivel = Convert.ToDouble(Console.ReadLine());
+                        if (retorno == "SIM")
 
-                Console.WriteLine("Qual Veiculo você deseja Cadastrar Carro ou Moto ? \n");
-                op = Console.ReadLine().ToUpper();
+                            carro.Flex = true;
 
-                Carro carros = new Carro (Modelo, Marca, PaisDeOrigem, QntTanqueAtual, Flex, QntTanqueCombustivel,400);
-                Moto motos = new Moto (Modelo, Marca, PaisDeOrigem, QntTanqueAtual, Flex, QntTanqueCombustivel,300);
+                        else
+                            carro.Flex = false;
+
+                        Console.WriteLine("QUAL É A CAPACIDADE DO TANQUE DO CARRO ?");
+                        carro.QntTanqueCombustivel = decimal.Parse(Console.ReadLine());
+                        carro.QntTanqueCombustivel = carro.ValidacaoDeci(carro.QntTanqueCombustivel);
 
 
-                if (op == "CARRO")
+
+                        Console.WriteLine("QUANTOS LITROS TEM NO TANQUE ATUAL ? ");
+                        carro.QntTanqueAtual = decimal.Parse(Console.ReadLine());
+                        carro.QntTanqueAtual = carro.ValidacaoDeci(carro.QntTanqueAtual);
+
+
+                        Console.WriteLine("QUANTOS KM/L O CARRO FAZ ? ");
+                        carro.KmPorLitro = decimal.Parse(Console.ReadLine());
+                        carro.KmPorLitro = carro.ValidacaoDeci(carro.KmPorLitro);
+
+
+
+                        Console.WriteLine("QUANTOS CAVALO DE POTENCIA O CARRO TEM ?");
+                        carro.Cavalos = int.Parse(Console.ReadLine());
+                        carro.Cavalos = carro.ValidacaoInt(carro.Cavalos);
+
+
+
+
+                        Console.WriteLine("O FILTRO DE COMBUSTIVEL DO CARRO ESTÁ ENTUPIDO ? ");
+                        string filtro = Console.ReadLine();
+
+                        if (filtro.ToString().ToUpper() == "SIM")
+
+                            carro.FiltroCombustivelEntupido = true;
+                        else
+                            carro.FiltroCombustivelEntupido = false;
+
+                        carros.Add(carro);
+                        Console.WriteLine($"MARCA:{carros[i].Marca} \n MODELO: {carros[i].Modelo} \nPAIS DE ORIGEM: {carros[i].PaisDeOrigem} \n FLEX: {carros[i].Flex} \n QUANTIDADE DE COMBUSTIVEL ATUAL: {carros[i].QntTanqueAtual} \n QUANTIDADE DE COMBUSTIVEL TOTAL SUPORTADA: {carros[i].QntTanqueCombustivel} \n POTENCIA: {carros[i].Cavalos} ");
+                    }
+                    catch (Exception)
+                    {
+
+                        Console.WriteLine("ERRO DIGITE NOVAMENTE OS DADOS DO CARRO !!");
+                        i--;
+                    }
+                }
+
+                for (int i = 0; i < 2; i++)
                 {
 
-                    carros.KmLitro(9.1);
-                    carros.FiltroCombustivelEntupido = true;
-                    Console.WriteLine("Digite Quantos Cavalos tem o Carro !!! Ex: 320 \n"); 
-                    carros.Cavalos = Convert.ToInt32(Console.ReadLine());
-                    
+                    try
+                    {
+                        Moto moto = new Moto();
 
-                    veiculos1.Add(carros);
-                    contCarros++;
-                    if (contCarros == 3)
-                    
-                        Console.WriteLine("Por favor Digite agora 2 motos !! ");
-                   
-                    vei++;
+                        Console.WriteLine("DIGITE A MARCA DA MOTO ? ");
+                        moto.Marca = Console.ReadLine();
 
+                        Console.WriteLine("DIGITE O MODELO DA MOTO ? ");
+                        moto.Modelo = Console.ReadLine();
+
+                        Console.WriteLine("DIGITE O PAIS DE ORIGEM DA MOTO  ? ");
+                        moto.PaisDeOrigem = Console.ReadLine();
+
+                        Console.WriteLine("A MOTO É FLEX ? SIM OU NAO");
+                        retorno = Console.ReadLine().ToUpper();
+
+                        if (retorno == "SIM")
+                            moto.Flex = true;
+                        else
+                            moto.Flex = false;
+
+                        Console.WriteLine("QUAL É A CAPACIDADE DO TANQUE ?");
+                        moto.QntTanqueCombustivel = decimal.Parse(Console.ReadLine());
+                        moto.QntTanqueCombustivel = moto.ValidacaoDeci(moto.QntTanqueCombustivel);
+
+
+                        Console.WriteLine("QUANTOS LITROS TEM NO TANQUE ATUAL ? ");
+                        moto.QntTanqueAtual = decimal.Parse(Console.ReadLine());
+                        moto.QntTanqueAtual = moto.ValidacaoDeci(moto.QntTanqueAtual);
+
+
+                        Console.WriteLine("QUANTOS KM/L A MOTO FAZ ");
+                        moto.KmPorLitro = decimal.Parse(Console.ReadLine());
+                        moto.KmPorLitro = moto.ValidacaoDeci(moto.KmPorLitro);
+
+
+                        Console.WriteLine("QUANTAS CILINDRADAS A MOTO TEM?");
+                        moto.Cilindradas = int.Parse(Console.ReadLine());
+                        moto.Cilindradas = moto.ValidacaoInt(moto.Cilindradas);
+
+                        Console.WriteLine("O FILTRO DE COMBUSTÍVEL DA MOTO ESTÁ ENTUPIDO ?");
+                        string filtro2 = Console.ReadLine();
+
+                        if (filtro2.ToString().ToUpper() == "SIM")
+                            moto.FiltroCombustivelEntupido = true;
+                        else
+                            moto.FiltroCombustivelEntupido = false;
+
+                        motos.Add(moto);
+                        Console.WriteLine($"MARCA: {motos[i].Marca} \n MODELO: {motos[i].Modelo} \n PAIS DE ORIGEM: {motos[i].PaisDeOrigem} \n FLEX: {motos[i].Flex} \nQUANTIDADE DE COMBUSTIVEL ATUAL: {motos[i].QntTanqueAtual} \nQUANTIDADE DE COMBUSTIVEL TOTAL SUPORTADA:{motos[i].QntTanqueCombustivel} \n POTENCIA: {motos[i].Cilindradas} ");
+
+                    }
+                    catch (Exception)
+                    {
+
+                        Console.WriteLine("ERRO DIGITE NOVAMENTE OS DADOS DA MOTO !!");
+                        i--;
+                    }
                 }
-                else if (op == "MOTO")
+
+
+                Console.WriteLine("DIGITE A KILOMETRAGEM TOTAL DA VIAGEM : ");
+                decimal viagem = Convert.ToDecimal(Console.ReadLine());
+
+                Console.WriteLine("O CLIMA ESTÁ BOM OU RUIM ?");
+                string clima = Console.ReadLine().ToUpper();
+
+                Console.Write("A VIAGEM COMEÇARA PRIMEIRO COM OS CARROS E EM SEGUIDA IRA PARA AS MOTOS ");
+
+                for (int i = 0; i < 3; i++)
                 {
-         
-                    Console.WriteLine("Digite Quantas Cilindradas tem a Moto !! Ex: 660 \n");
-                    motos.Cilindradas = Convert.ToInt32(Console.ReadLine());
-                    veiculos1.Add(motos);
-                    contMotos++;
-                    
+                    do
+                    {
 
-                    if (contMotos == 2)
-                    
-                        Console.WriteLine("Por favor Digite agora 3 carros !! ");
-                    
-                    vei++;
+                        Console.WriteLine($"MARCA:{carros[i].Marca} \n MODELO: {carros[i].Modelo} \nPAIS DE ORIGEM: {carros[i].PaisDeOrigem} \n FLEX: {carros[i].Flex} \n QUANTIDADE DE COMBUSTIVEL ATUAL: {carros[i].QntTanqueAtual} \n QUANTIDADE DE COMBUSTIVEL TOTAL SUPORTADA: {carros[i].QntTanqueCombustivel} \n POTENCIA: {carros[i].Cavalos} ");
+
+                        Console.WriteLine("Digite 1 para dirigir\nDigite 2 para abastecer\nDigite 3 para exibir a quantidade de combustível atual");
+                        string opcao = Console.ReadLine();
+
+                        switch (opcao)
+                        {
+                            case "1": { Console.WriteLine("Por quantos km's deseja dirigir ?"); carros[i].Dirigir(Convert.ToDecimal(Console.ReadLine()), clima); break; }
+                            case "2": { Console.WriteLine("Quantos litros deseja abastecer ?"); carros[i].Abastecer(Convert.ToDecimal(Console.ReadLine())); break; }
+                            case "3": { Console.WriteLine("Quantidade do tanque atual:"); Console.WriteLine($"{Math.Round(carros[i].QntTanqueAtual, 2)} litros \n"); break; }
+
+                            default:
+                                break;
+                        }
+
+                    } while (viagem > carros[i].viajar);
+
+                    Console.WriteLine($"O carro chegou{carros[i].Modelo}, digite enter para a próxima viagem.");
+                    Console.ReadLine();
                 }
 
-
-               
-            } while (vei < 5);
-
-
-            var count = 0;
-            foreach ( var veiculo in veiculos1)
-            {
-            Console.WriteLine($"Carro:{veiculos1[count].Modelo} - \n Marca: {veiculos1[count].Marca} - \n Combustível atual no tanque {veiculos1[count].QntTanqueAtual} -\n  QntTanqueTotal = {veiculos1[count].QntTanqueCombustivel}");
-
-                count++;
-            }
-
-            while (true)
-            {
-                Console.WriteLine("Digite 1 para dirigir\nDigite 2 para abastecer\nDigite 3 para exibir a quantidade de combustível atual");
-                string opcao = Console.ReadLine();
-
-                switch (opcao)
+                for (int i = 0; i < 2; i++)
                 {
-                   case "1": { Console.WriteLine("Por quantos km's deseja dirigir ?"); carros.Dirigir(Convert.ToDouble(Console.ReadLine())); break; }
-                   case "2": { Console.WriteLine("Quantos litros deseja abastecer ?"); carros.Abastecer(Convert.ToDouble(Console.ReadLine())); break; }
-                   case "3": { Console.WriteLine("Quantidade do tanque atual:"); Console.WriteLine($"{Math.Round(carros.QntTanqueAtual, 2)} litros \n"); break; }
+                    do
+                    {
 
-                    default:
-                        break;
+                        Console.WriteLine($"MARCA: {motos[i].Marca} \n MODELO: {motos[i].Modelo} \n PAIS DE ORIGEM: {motos[i].PaisDeOrigem} \n FLEX: {motos[i].Flex} \nQUANTIDADE DE COMBUSTIVEL ATUAL: {motos[i].QntTanqueAtual} \nQUANTIDADE DE COMBUSTIVEL TOTAL SUPORTADA:{motos[i].QntTanqueCombustivel} \n POTENCIA: {motos[i].Cilindradas} ");
+
+                        Console.WriteLine("Digite 1 para dirigir\nDigite 2 para abastecer\nDigite 3 para exibir a quantidade de combustível atual");
+                        string opcao = Console.ReadLine();
+
+                        switch (opcao)
+                        {
+                            case "1": { Console.WriteLine("Por quantos km's deseja dirigir ?"); motos[i].Dirigir(Convert.ToDecimal(Console.ReadLine()), clima); break; }
+                            case "2": { Console.WriteLine("Quantos litros deseja abastecer ?"); motos[i].Abastecer(Convert.ToDecimal(Console.ReadLine())); break; }
+                            case "3": { Console.WriteLine("Quantidade do tanque atual:"); Console.WriteLine($"{Math.Round(motos[i].QntTanqueAtual, 2)} litros \n"); break; }
+
+                            default:
+                                break;
+                        }
+
+                    } while (viagem > motos[i].viajar);
+                    Console.WriteLine($"O carro chegou{motos[i].Modelo}, digite enter para a próxima viagem.");
+                    Console.ReadLine();
                 }
-            }
+                Console.WriteLine("As motos chegaram no seu destino.");
+                Console.WriteLine("Deseja viajar novamente? Sim ou Nao");
+                escolher = Console.ReadLine().ToUpper();
 
-
-
+            } while (escolher == "SIM");
         }
     }
 }
