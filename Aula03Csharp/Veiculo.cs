@@ -28,9 +28,10 @@ namespace Aula03Csharp
         {
 
         }
-
+        // kmlitro
         public void KmLitro(decimal kmPorLitro) { KmPorLitro = kmPorLitro; }
 
+        //  método autonomia maxima do carro
         public decimal AutonomiaAtual(bool moto, string clima)
         {
             if (FiltroCombustivelEntupido && clima == "RUIM")
@@ -46,12 +47,13 @@ namespace Aula03Csharp
 
             else return QntTanqueAtual * KmPorLitro;
         }
+        // método de abastecimento dos veiculos
 
         public void Abastecer(decimal litros)
         {
 
             if (QntTanqueAtual == QntTanqueCombustivel)
-                Console.WriteLine("Tanque cheio!");
+                Console.WriteLine("TANQUE CHEIO!\n");
 
             if (QntTanqueAtual < QntTanqueCombustivel)
                 if (QntTanqueAtual + litros > QntTanqueCombustivel)
@@ -59,9 +61,9 @@ namespace Aula03Csharp
                 else
                     QntTanqueAtual += litros;
             else
-                Console.WriteLine($"Carro abastecido! Tanque atual: {Math.Round(QntTanqueAtual, 2)}");
+                Console.WriteLine($"CARRO ABASTECIDO! TANQUE ATUAL:\n {Math.Round(QntTanqueAtual, 2)}");
 
-            Console.WriteLine("Tanque abastecido");
+            Console.WriteLine("TANQUE ABASTECIDO\n");
         }
     }
 }
