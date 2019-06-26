@@ -44,5 +44,15 @@ namespace Aula03Csharp
 
             Console.WriteLine($"Tanque abastecido:{QntTanqueAtual}");
         }
+        public override string ToString()
+        {
+            return "Marca:" + Marca
+                + "\nModelo:" + Modelo
+                + "\nTanque:" + QntTanqueCombustivel
+                + "\nTanque Atual:" + QntTanqueAtual
+                + "\nFlex:" + Flex
+                + "\nFiltroEntupiu:" + FiltroCombustivelEntupido;
+
+        }
     }
 }

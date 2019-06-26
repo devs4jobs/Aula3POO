@@ -11,6 +11,7 @@ namespace Aula03Csharp
             int i;
             List<Carro> Carros = new List<Carro>();
             List<Moto> Motos = new List<Moto>();
+            //registro carro
             for(i=0;i<3;i++)
             {
                 try
@@ -24,6 +25,7 @@ namespace Aula03Csharp
                     i--;
                 }
             } 
+            //registro moto
             for(i=0;i<2;i++)
             {
                 try

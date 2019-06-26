@@ -45,7 +45,7 @@ namespace Aula03Csharp
                 else Console.WriteLine($"O moto avançou {xKms} quilometro(s). Combustível atual : {Math.Round(Consumo(xKms), 2)} litros.\nFalta:{Viagem-viagem}");
             }
             else
-                Console.WriteLine($"O moto avançou {xKms} quilometro(s). Combustível atual : {Math.Round(Consumo(AutonomiaAtual()), 2)} litros - Abasteça-o!\nFalta:{Viagem - viagem}");
+                Console.WriteLine($"O moto avançou {AutonomiaAtual()} quilometro(s). Combustível atual : {Math.Round(Consumo(AutonomiaAtual()), 2)} litros - Abasteça-o!\nFalta:{Viagem - viagem}");
         }
         public override decimal AutonomiaAtual()
         {   
