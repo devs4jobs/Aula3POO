@@ -148,16 +148,16 @@ namespace Aula03Csharp
                     do
                     {
                
-                        Console.WriteLine($"MARCA:{carros[i].Marca}\nMODELO:{carros[i].Modelo}\nPAIS DE ORIGEM:{carros[i].PaisDeOrigem}\nFLEX:{carros[i].Flex}\nQUANTIDADE DE COMBUSTIVEL ATUAL:{carros[i].QntTanqueAtual}\nQUANTIDADE DE COMBUSTIVEL TOTAL SUPORTADA:{carros[i].QntTanqueCombustivel}\nPOTENCIA:{carros[i].Cavalos} ");
+                        Console.WriteLine($"\nMARCA:{carros[i].Marca}\nMODELO:{carros[i].Modelo}\nPAIS DE ORIGEM:{carros[i].PaisDeOrigem}\nFLEX:{carros[i].Flex}\nQUANTIDADE DE COMBUSTIVEL ATUAL:{carros[i].QntTanqueAtual}\nQUANTIDADE DE COMBUSTIVEL TOTAL SUPORTADA:{carros[i].QntTanqueCombustivel}\nPOTENCIA:{carros[i].Cavalos} ");
 
                         Console.WriteLine("Digite 1 para dirigir\nDigite 2 para abastecer\nDigite 3 para exibir a quantidade de combustível atual");
                         string opcao = Console.ReadLine();
 
                         switch (opcao)
                         {
-                            case "1": { Console.WriteLine("Por quantos km's deseja dirigir ?"); carros[i].Dirigir(Convert.ToDecimal(Console.ReadLine()), clima); break; }
-                            case "2": { Console.WriteLine("Quantos litros deseja abastecer ?"); carros[i].Abastecer(Convert.ToDecimal(Console.ReadLine())); break; }
-                            case "3": { Console.WriteLine("Quantidade do tanque atual:"); Console.WriteLine($"{Math.Round(carros[i].QntTanqueAtual, 2)} litros \n"); break; }
+                            case "1": { Console.WriteLine("\nPor quantos km's deseja dirigir ?"); carros[i].Dirigir(Convert.ToDecimal(Console.ReadLine()), clima); break; }
+                            case "2": { Console.WriteLine("\nQuantos litros deseja abastecer ?"); carros[i].Abastecer(Convert.ToDecimal(Console.ReadLine())); break; }
+                            case "3": { Console.WriteLine("\nQuantidade do tanque atual:"); Console.WriteLine($"{Math.Round(carros[i].QntTanqueAtual, 2)} litros \n"); break; }
 
                             default:
                                 break;
@@ -174,16 +174,16 @@ namespace Aula03Csharp
                     do
                     {
    
-                        Console.WriteLine($"\nMARCA: {motos1[i].Marca}\nMODELO: {motos1[i].Modelo}\nPAIS DE ORIGEM: {motos1[i].PaisDeOrigem}\nFLEX: {motos1[i].Flex}\nQUANTIDADE DE COMBUSTIVEL ATUAL: {motos1[i].QntTanqueAtual}\nQUANTIDADE DE COMBUSTIVEL TOTAL SUPORTADA:{motos1[i].QntTanqueCombustivel}\nPOTENCIA: {motos1[i].Cilindradas} ");
+                        Console.WriteLine($"\nMARCA: {motos1[i].Marca}\nMODELO: {motos1[i].Modelo}\nPAIS DE ORIGEM: {motos1[i].PaisDeOrigem}\nFLEX: {motos1[i].Flex}\nQUANTIDADE DE COMBUSTIVEL ATUAL: {motos1[i].QntTanqueAtual}\nQUANTIDADE DE COMBUSTIVEL TOTAL SUPORTADA:{motos1[i].QntTanqueCombustivel}\nPOTENCIA: {motos1[i].Cilindradas} \n");
 
                         Console.WriteLine("Digite 1 para dirigir\nDigite 2 para abastecer\nDigite 3 para exibir a quantidade de combustível atual");
                         string opcao = Console.ReadLine();
 
                         switch (opcao)
                         {
-                            case "1": { Console.WriteLine("Por quantos km's deseja dirigir ?"); motos1[i].Dirigir(Convert.ToDecimal(Console.ReadLine()), clima); break; }
-                            case "2": { Console.WriteLine("Quantos litros deseja abastecer ?"); motos1[i].Abastecer(Convert.ToDecimal(Console.ReadLine())); break; }
-                            case "3": { Console.WriteLine("Quantidade do tanque atual:"); Console.WriteLine($"{Math.Round(motos1[i].QntTanqueAtual, 2)} litros \n"); break; }
+                            case "1": { Console.WriteLine("Por quantos km's deseja dirigir ?\n"); motos1[i].Dirigir(Convert.ToDecimal(Console.ReadLine()), clima); break; }
+                            case "2": { Console.WriteLine("Quantos litros deseja abastecer ?\n"); motos1[i].Abastecer(Convert.ToDecimal(Console.ReadLine())); break; }
+                            case "3": { Console.WriteLine("Quantidade do tanque atual:\n"); Console.WriteLine($"{Math.Round(motos1[i].QntTanqueAtual, 2)} litros \n"); break; }
 
                             default:
                                 break;
