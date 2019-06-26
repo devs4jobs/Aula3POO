@@ -17,7 +17,7 @@ namespace Aula03Csharp
 
             if (qtdeKm() >= xKms)
             {
-                Console.WriteLine($"A moto avançou {qtdeKm()} quilometro(s). Combustível atual : {Math.Round(Consumo(xKms, clima), 2)} litros.");
+                Console.WriteLine($"A moto avançou {xKms} quilometro(s). Combustível atual : {Math.Round(Consumo(xKms, clima), 2)} litros.");
                 viajado += xKms;
             }
             else
