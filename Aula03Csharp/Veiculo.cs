@@ -16,13 +16,6 @@ namespace Aula03Csharp
         public bool climaruim;
         public decimal viajar = 0;
 
-        public Veiculo(string marca, string paisOrigem, decimal qntTanque, bool flex)
-        {
-            Marca = marca;
-            PaisDeOrigem = paisOrigem;
-            QntTanqueCombustivel = qntTanque;
-            Flex = flex;
-        }
 
         public Veiculo()
         {
@@ -48,7 +41,6 @@ namespace Aula03Csharp
             else return QntTanqueAtual * KmPorLitro;
         }
         // método de abastecimento dos veiculos
-
         public void Abastecer(decimal litros)
         {
 

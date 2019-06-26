@@ -147,8 +147,8 @@ namespace Aula03Csharp
                 {
                     do
                     {
-                        //Console.Clear();
-                        Console.WriteLine($"MARCA:{carros[i].Marca} \n MODELO: {carros[i].Modelo} \nPAIS DE ORIGEM: {carros[i].PaisDeOrigem} \n FLEX: {carros[i].Flex} \n QUANTIDADE DE COMBUSTIVEL ATUAL: {carros[i].QntTanqueAtual} \n QUANTIDADE DE COMBUSTIVEL TOTAL SUPORTADA: {carros[i].QntTanqueCombustivel} \n POTENCIA: {carros[i].Cavalos} ");
+               
+                        Console.WriteLine($"MARCA:{carros[i].Marca}\nMODELO:{carros[i].Modelo}\nPAIS DE ORIGEM:{carros[i].PaisDeOrigem}\nFLEX:{carros[i].Flex}\nQUANTIDADE DE COMBUSTIVEL ATUAL:{carros[i].QntTanqueAtual}\nQUANTIDADE DE COMBUSTIVEL TOTAL SUPORTADA:{carros[i].QntTanqueCombustivel}\nPOTENCIA:{carros[i].Cavalos} ");
 
                         Console.WriteLine("Digite 1 para dirigir\nDigite 2 para abastecer\nDigite 3 para exibir a quantidade de combustível atual");
                         string opcao = Console.ReadLine();
@@ -173,9 +173,8 @@ namespace Aula03Csharp
                 {
                     do
                     {
-                        //Console.Clear();
-
-                        Console.WriteLine($"MARCA: {motos1[i].Marca}\n MODELO: {motos1[i].Modelo}\n PAIS DE ORIGEM: {motos1[i].PaisDeOrigem}\n FLEX: {motos1[i].Flex}\nQUANTIDADE DE COMBUSTIVEL ATUAL: {motos1[i].QntTanqueAtual}\nQUANTIDADE DE COMBUSTIVEL TOTAL SUPORTADA:{motos1[i].QntTanqueCombustivel}\n POTENCIA: {motos1[i].Cilindradas} ");
+   
+                        Console.WriteLine($"\nMARCA: {motos1[i].Marca}\nMODELO: {motos1[i].Modelo}\nPAIS DE ORIGEM: {motos1[i].PaisDeOrigem}\nFLEX: {motos1[i].Flex}\nQUANTIDADE DE COMBUSTIVEL ATUAL: {motos1[i].QntTanqueAtual}\nQUANTIDADE DE COMBUSTIVEL TOTAL SUPORTADA:{motos1[i].QntTanqueCombustivel}\nPOTENCIA: {motos1[i].Cilindradas} ");
 
                         Console.WriteLine("Digite 1 para dirigir\nDigite 2 para abastecer\nDigite 3 para exibir a quantidade de combustível atual");
                         string opcao = Console.ReadLine();
