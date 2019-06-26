@@ -8,6 +8,24 @@ namespace Aula03Csharp
         public Carro()
         {
         }
+        public void RegistraCarro()
+        {
+            Console.Write("Digite o modelo do carro:");
+            Modelo = Console.ReadLine();
+            Console.Write("Digite a marca do carro:");
+            Marca = Console.ReadLine();
+            Console.Write("Digite os cavalos do carro:");
+            Cavalos = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Digite o pais de origem do carro:");
+            PaisDeOrigem = Console.ReadLine();
+            Console.Write("Digite o quantidade maxima de combustivel do carro:");
+            QntTanqueCombustivel = Convert.ToDecimal(Console.ReadLine());
+            Console.Write("Digite o cumbustivel atual do carro:");
+            QntTanqueAtual = Convert.ToDecimal(Console.ReadLine());
+            Console.Write("O filtro de combustivel do carro está entupido(true/false):");
+            FiltroCombustivelEntupido = Convert.ToBoolean(Console.ReadLine());
+            Console.Clear();
+        }
         public void Dirigir(decimal xKms,decimal Viagem)
         {
 
