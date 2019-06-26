@@ -11,25 +11,23 @@ namespace Aula03Csharp
         {
 
         }
-
         public void Dirigir(decimal xKms,string clima)
         {
+            viajar += xKms;
 
-            if (AutonomiaAtual() >= xKms)
+            if ( xKms <= AutonomiaAtual(true,clima))
                 Console.WriteLine($"A moto avançou {xKms} quilometro(s). Combustível atual : {Math.Round(Consumo(xKms,clima), 2)} litros.");
             else
                 Console.WriteLine($"A moto não possui combustível suficiente. Combustível atual: {Math.Round(QntTanqueAtual, 2)} - Abasteça-a!");
         }
-
         public decimal Consumo(decimal xKms, string clima)
         {
-            if (FiltroCombustivelEntupido || clima == "RUIM")
-                return QntTanqueAtual -= xKms / ( KmPorLitro - (KmPorLitro * 20 / 100));
-      
-            else if (FiltroCombustivelEntupido && clima == "RUIM")
 
-                return QntTanqueAtual -= xKms / (KmPorLitro - (KmPorLitro *40 / 100));
 
+           if (FiltroCombustivelEntupido && clima == "RUIM")
+                return QntTanqueAtual -= xKms / (KmPorLitro - (KmPorLitro * 40 / 100));
+            else if (FiltroCombustivelEntupido || clima == "RUIM")
+                return QntTanqueAtual -= xKms / ( KmPorLitro -(KmPorLitro * 20 / 100));
             else
                 return QntTanqueAtual -= xKms / KmPorLitro;
 
