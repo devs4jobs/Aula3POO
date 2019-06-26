@@ -74,6 +74,23 @@ namespace Aula03Csharp
                 + "\nPotencia:" + Cavalos;
                 
         }
+        public void Viajando(Carro carro,decimal Viagem)
+        {
+            do
+            {
+                Console.WriteLine("Digite 1 para dirigir\nDigite 2 para abastecer\nDigite 3 para exibir a quantidade de combustível atual\nDigite 4 para ver todos os dados do veiculo");
+                string opcao = Console.ReadLine();
+                switch (opcao)
+                {
+                    case "1": { Console.WriteLine("Por quantos km's deseja dirigir ?"); carro.Dirigir(Convert.ToDecimal(Console.ReadLine()), Viagem); break; }
+                    case "2": { Console.WriteLine("Quantos litros deseja abastecer ?"); carro.Abastecer(Convert.ToDecimal(Console.ReadLine())); break; }
+                    case "3": { Console.WriteLine("Quantidade do tanque atual:"); Console.WriteLine($"{Math.Round(carro.QntTanqueAtual, 2)} litros \n"); break; }
+                    case "4": { Console.WriteLine(carro.ToString()); break; }
+                    default:
+                        break;
+                }
+            } while (carro.viagem != Viagem);
 
+        }
     }
 }
